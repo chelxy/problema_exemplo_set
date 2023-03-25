@@ -3,7 +3,7 @@ package entities;
 import java.util.Date;
 import java.util.Objects;
 
-public class LogEntry {
+public class LogEntry implements Comparable<LogEntry>{
 	
 	private String username;
 	private Date moment;
@@ -44,5 +44,10 @@ public class LogEntry {
 			return false;
 		LogEntry other = (LogEntry) obj;
 		return Objects.equals(username, other.username);
+	}
+
+	@Override
+	public int compareTo(LogEntry other) {
+		return username.compareTo(other.getUsername());
 	}
 }
